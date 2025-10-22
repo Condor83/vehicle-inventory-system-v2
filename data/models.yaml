@@ -1,0 +1,21 @@
+models:
+- name: Land Cruiser
+  kebab: land-cruiser
+  underscore: land_cruiser
+  space_plus: Land+Cruiser
+  passthrough: Land%20Cruiser
+- name: 4Runner
+  kebab: 4runner
+  underscore: 4runner
+  space_plus: 4Runner
+  passthrough: 4Runner
+- name: Tacoma
+  kebab: tacoma
+  underscore: tacoma
+  space_plus: Tacoma
+  passthrough: Tacoma
+- name: Tundra
+  kebab: tundra
+  underscore: tundra
+  space_plus: Tundra
+  passthrough: Tundra

@@ -1,0 +1,17 @@
+templates:
+- backend_type: DEALER_INSPIRE
+  inventory_type: new
+  url_template: '{homepage_url}/new-vehicles/{model_slug}/'
+  model_slug_rule: kebab
+- backend_type: CDK_GLOBAL
+  inventory_type: new
+  url_template: '{homepage_url}/new-inventory/index.htm?model={model_plus}'
+  model_slug_rule: space_plus
+- backend_type: DEALER_COM
+  inventory_type: new
+  url_template: '{homepage_url}/new-inventory/{model_slug}/'
+  model_slug_rule: kebab
+- backend_type: SMARTPATH
+  inventory_type: new
+  url_template: https://smartpath.example.com/inventory?series={model_plus}
+  model_slug_rule: space_plus
