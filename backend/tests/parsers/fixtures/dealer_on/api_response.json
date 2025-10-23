@@ -1,0 +1,23 @@
+{
+  "DisplayCards": [
+    {
+      "VehicleCard": {
+        "VehicleVin": "JTEVA5BR0S5057991",
+        "VehicleDetailUrl": "https://www.petersontoyota.com/new-Lumberton-2025-Toyota-4Runner-TRD+Sport+Premium-JTEVA5BR0S5057991",
+        "VehicleImageModel": {
+          "VehiclePhotoSrc": "/inventoryphotos/1409/jteva5br0s5057991/ip/1.jpg",
+          "VehicleDetailUrl": "https://www.petersontoyota.com/new-Lumberton-2025-Toyota-4Runner-TRD+Sport+Premium-JTEVA5BR0S5057991"
+        },
+        "VehicleInternetPrice": 0.0,
+        "TaggingPrice": "64140",
+        "VehicleMsrp": 64140.0,
+        "VehicleStockNumber": "PT123",
+        "VehicleTrim": "TRD Sport Premium",
+        "VehicleModel": "4Runner",
+        "VehicleYear": 2025,
+        "VehicleInTransit": false,
+        "VehicleInProduction": false
+      }
+    }
+  ]
+}

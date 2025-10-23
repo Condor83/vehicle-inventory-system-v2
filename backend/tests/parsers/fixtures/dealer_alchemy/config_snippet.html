@@ -1,0 +1,19 @@
+<script>
+var indexName = "vehicles-TOY30036";
+var srpCondition = 'New';
+const typesenseAdapter = new TypesenseInstantSearchAdapter({
+    server: {
+        apiKey: "TEST_API_KEY",
+        nodes: [{
+            host: 'example.typesense.net',
+            port: 443,
+            protocol: 'https'
+        }],
+        cacheSearchResultsForSeconds: 120
+    },
+    additionalSearchParameters: {
+        query_by: "vin,stockNumber,model"
+    }
+});
+let hitsPerPage = 24;
+</script>

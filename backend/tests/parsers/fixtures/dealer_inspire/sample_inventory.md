@@ -8,6 +8,7 @@
 - Internet Price: $48,995
 - Our Price: $47,500
 - View details: https://www.tetontoyota.com/inventory/new-2024-toyota-4runner-sr5-jtenu5jr4r5299999
+![4Runner SR5](https://media.example.com/inventory/4runner-sr5.jpg)
 
 ## 2024 Toyota Land Cruiser First Edition
 - VIN: JTEABFAJ9RK001234
@@ -16,6 +17,7 @@
 - Sticker Price: $89,500
 - Sale Price: $87,250
 - Vehicle URL: https://www.tetontoyota.com/inventory/new-2024-toyota-land-cruiser-first-edition-jteabfaj9rk001234/
+![Land Cruiser](https://media.example.com/inventory/land-cruiser.jpg)
 
 ## 2024 Toyota Tacoma TRD Pro
 - VIN JTENU5JR3R5311111

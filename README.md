@@ -14,7 +14,7 @@ pip install -r requirements.txt
 # 2) Infra (PG + MinIO)
 docker compose up -d
 
-# 3) Seed from your spreadsheet export
+# 3) Seed from your spreadsheet export (drop any "Vehicle Locator" spreadsheets into data/raw for dealer enrichment first)
 python scripts/seed_from_export.py --input ./data/raw/database_export.xlsx --out ./data/seeds
 
 # 4) Load seeds into Postgres (runs Alembic migrations automatically)

@@ -9,6 +9,7 @@ from typing import Dict, Iterable, List, Optional, Sequence, Tuple, Union
 VIN_RE = re.compile(r"\b[A-HJ-NPR-Z0-9]{17}\b", re.IGNORECASE)
 PRICE_RE = re.compile(r"\$[\s]*([0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]{2})?)")
 URL_RE = re.compile(r"https?://[^\s\"')>]+", re.IGNORECASE)
+IMAGE_RE = re.compile(r"!\[[^\]]*\]\((https?://[^)]+)\)")
 
 ParsedRow = Dict[str, Optional[Union[str, float]]]
 
@@ -74,6 +75,14 @@ def _apply_line(
         return
 
     lower = line.lower()
+
+    if not record.get("image_url"):
+        for match in IMAGE_RE.finditer(line):
+            image_url = match.group(1)
+            if any(token in image_url for token in ("loading_image", "img_controls", "placeholder")):
+                continue
+            record["image_url"] = image_url
+            break
     line_price = _parse_price(line)
 
     if line_price is not None:
@@ -136,6 +145,7 @@ def parse_inventory_with_config(markdown_or_html: str, config: ParserConfig) -> 
                     "vdp_url": None,
                     "stock_number": None,
                     "status": None,
+                    "image_url": None,
                     "_price_rank": float("inf"),
                 },
             )

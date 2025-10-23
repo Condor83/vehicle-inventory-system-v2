@@ -14,7 +14,9 @@ def test_dealer_com_parser_extracts_prices():
     assert first["advertised_price"] == 58995.0
     assert first["msrp"] == 61500.0
     assert first["status"] == "available"
+    assert first["image_url"] == "https://images.dealer.com/inventory/tundra.jpg"
 
     second = data["JTEABFAJ1RK002222"]
     assert second["advertised_price"] == 89750.0
     assert second["status"] == "in_transit"
+    assert second["image_url"] == "https://images.dealer.com/inventory/land-cruiser.jpg"

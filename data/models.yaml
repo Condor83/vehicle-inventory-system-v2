@@ -4,18 +4,26 @@ models:
   underscore: land_cruiser
   space_plus: Land+Cruiser
   passthrough: Land%20Cruiser
+  series: landcruiser
+  dealer_socket_id: 306
 - name: 4Runner
   kebab: 4runner
   underscore: 4runner
   space_plus: 4Runner
   passthrough: 4Runner
+  series: 4runner
+  dealer_socket_id: 298
 - name: Tacoma
   kebab: tacoma
   underscore: tacoma
   space_plus: Tacoma
   passthrough: Tacoma
+  series: tacoma
+  dealer_socket_id: 312
 - name: Tundra
   kebab: tundra
   underscore: tundra
   space_plus: Tundra
   passthrough: Tundra
+  series: tundra
+  dealer_socket_id: 313

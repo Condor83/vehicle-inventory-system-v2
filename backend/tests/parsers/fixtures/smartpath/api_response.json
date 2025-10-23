@@ -1,0 +1,19 @@
+{
+  "hits": [
+    {
+      "document": {
+        "vin": "JTEVA5BR0S5057991",
+        "finalPrice": "$42,128",
+        "msrp": "$45,143",
+        "vdpUrl": "/vehicle/New/2025/Toyota/4Runner/JTEVA5BR0S5057991/",
+        "stockNumber": "SP001",
+        "trim": "TRD Sport Premium",
+        "model": "4Runner",
+        "year": 2025,
+        "features": ["Adaptive Cruise Control", "Backup Camera"],
+        "flags": {"inTransit": false},
+        "imageUrls": ["https://images.example.com/4runner.jpg"]
+      }
+    }
+  ]
+}

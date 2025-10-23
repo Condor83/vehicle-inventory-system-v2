@@ -1,0 +1,27 @@
+{
+  "hits": [],
+  "nbHits": 0,
+  "page": 0,
+  "nbPages": 0,
+  "hitsPerPage": 50,
+  "exhaustiveNbHits": true,
+  "exhaustiveTypo": true,
+  "exhaustive": {
+    "nbHits": true,
+    "typo": true
+  },
+  "query": "",
+  "params": "filters=type:New AND make:Toyota AND model:4Runner&hitsPerPage=50",
+  "renderingContent": {},
+  "processingTimeMS": 1,
+  "processingTimingsMS": {
+    "_request": {
+      "roundTrip": 63
+    },
+    "getIdx": {
+      "total": 1
+    },
+    "total": 1
+  },
+  "serverTimeMS": 2
+}

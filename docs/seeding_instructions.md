@@ -7,6 +7,8 @@ Map spelling variants:
 - `DEALERINSPIRE` → `DEALER_INSPIRE`
 - `DEALERALCHEMIST.COM` → `DEALER_ALCHEMY`
 
+> Tip: drop the latest "Vehicle Locator" spreadsheets into `data/raw/` before running the seeding script. The loader will merge them (via `Dealer Code`) to enrich each dealer with region codes, district numbers, and phone details so URL builders can inject the correct tokens.
+
 ## 2) Mark Template Scope & SmartPath
 For each row:
 - If `inventory_url_template` starts with `http`, set `scraping_config.template_scope = "absolute"`, else `"relative"`.
@@ -55,6 +57,16 @@ python scripts/seed_from_export.py --load --in-dir ./data/seeds
 ```
 
 This runs the Alembic migrations (creating tables if needed) and then COPYs the CSVs into Postgres.
+
+### Upload Operational Spreadsheets (PRD 01.2 ✅)
+After loading the seeds you can ingest the live Vehicle Locator spreadsheets:
+```bash
+curl -F "file=@data/raw/Vehicle Locator - 2025-09-26T124431.839.xlsx" http://localhost:8000/uploads
+curl -F "file=@data/raw/Vehicle Locator - 2025-09-26T124608.878.xlsx" http://localhost:8000/uploads
+```
+The upload service normalizes each VIN row (dealer, model code, colors, MSRP, invoice, allocation/arrival) and upserts into `vehicles`, `listings` (`source_rank=80`), and `observations` (`source='upload'` with full row payload). Dealer region/district/phone are refreshed as well.
+
+Once those spreadsheets are in, run the scrapers to layer in advertised prices and VDP URLs so price deltas remain accurate.
 
 ## 9) Validation
 - Inspect a random sample of dealers to confirm absolute vs relative URLs.

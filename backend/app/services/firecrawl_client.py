@@ -78,7 +78,11 @@ def _camel(value: str) -> str:
     return components[0] + "".join(c.title() for c in components[1:])
 
 
-def _build_scrape_options(formats: Optional[list[str]] = None) -> Dict[str, Any]:
+def _build_scrape_options(
+    formats: Optional[list[str]] = None,
+    *,
+    proxy: Optional[str] = None,
+) -> Dict[str, Any]:
     opts = {
         "onlyMainContent": True,
         "removeBase64Images": True,
@@ -87,8 +91,13 @@ def _build_scrape_options(formats: Optional[list[str]] = None) -> Dict[str, Any]
         "blockAds": True,
         "maxAge": 14400000,
     }
-    if formats:
-        opts["formats"] = formats
+    effective_formats = list(formats or [])
+    if "rawHtml" not in effective_formats:
+        effective_formats.append("rawHtml")
+    if effective_formats:
+        opts["formats"] = effective_formats
+    if proxy:
+        opts["proxy"] = proxy
     return opts
 
 
@@ -123,19 +132,20 @@ class FirecrawlClient:
         url: str,
         *,
         allow_extract_fallback: bool = False,
+        proxy: Optional[str] = None,
     ) -> FirecrawlResult:
-        document = await self._scrape(url)
+        document = await self._scrape(url, proxy=proxy)
         if document.markdown or document.html or not allow_extract_fallback:
             return document
-        extract_result = await self._extract(url)
+        extract_result = await self._extract(url, proxy=proxy)
         if extract_result:
             return extract_result
         return document
 
-    async def _scrape(self, url: str) -> FirecrawlResult:
+    async def _scrape(self, url: str, *, proxy: Optional[str] = None) -> FirecrawlResult:
         payload = {
             "url": url,
-            **_build_scrape_options(["markdown", "html"]),
+            **_build_scrape_options(["markdown", "html"], proxy=proxy),
         }
         body = await self._post("/v2/scrape", payload)
         if not body.get("success"):
@@ -150,10 +160,10 @@ class FirecrawlClient:
             source="scrape",
         )
 
-    async def _extract(self, url: str) -> Optional[FirecrawlResult]:
+    async def _extract(self, url: str, *, proxy: Optional[str] = None) -> Optional[FirecrawlResult]:
         payload = {
             "urls": [url],
-            "scrapeOptions": _build_scrape_options(["markdown", "html"]),
+            "scrapeOptions": _build_scrape_options(["markdown", "html"], proxy=proxy),
         }
         body = await self._post("/v2/extract", payload)
         status = body.get("status")

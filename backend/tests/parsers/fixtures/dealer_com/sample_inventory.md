@@ -7,6 +7,7 @@
 - Internet Price: $58,995
 - MSRP: $61,500
 - Vehicle Details: https://dealer.com/tundra/5TFJC5DB7RX001111
+![Tundra](https://images.dealer.com/inventory/tundra.jpg)
 
 ### 2025 Toyota Land Cruiser First Edition
 - VIN: JTEABFAJ1RK002222
@@ -15,3 +16,4 @@
 - Dealer Price $89,750
 - Sticker Price $92,100
 - More Info: https://dealer.com/land-cruiser/JTEABFAJ1RK002222
+![Land Cruiser](https://images.dealer.com/inventory/land-cruiser.jpg)

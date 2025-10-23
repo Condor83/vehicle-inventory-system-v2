@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "found": 1,
+      "hits": [
+        {
+          "document": {
+            "vin": "JTEABFAJXTK051728",
+            "finalPrice": "$73,194",
+            "advertisedPrice": null,
+            "msrp": "$73,194",
+            "stockNumber": "LC123",
+            "status": "New",
+            "condition": "New",
+            "flags": {
+              "inTransit": true,
+              "hasSoldVehicles": false
+            },
+            "imageUrls": [
+              "https://example.com/img.jpg"
+            ],
+            "make": "Toyota",
+            "model": "Land Cruiser",
+            "year": "2026",
+            "trim": "First Edition",
+            "exteriorColor": "Underground",
+            "interiorColor": "Black",
+            "features": [
+              "Adaptive Cruise Control",
+              "Apple Car Play"
+            ],
+            "dealer": {
+              "url": "www.amigotoyota.com"
+            },
+            "vdpUrl": "/vehicle/New/2026/Toyota/Land-Cruiser/JTEABFAJXTK051728/"
+          }
+        }
+      ]
+    }
+  ]
+}

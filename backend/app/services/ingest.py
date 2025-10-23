@@ -55,10 +55,16 @@ def _merge_vehicle(session: Session, vin: str, vehicle_data: Dict[str, Any]) -> 
     ]
     for field in mutable_fields:
         value = vehicle_data.get(field)
+        if value is None:
+            continue
         if field in {"msrp", "invoice_price"}:
             value = _as_decimal(value)
-        if value is not None:
-            setattr(vehicle, field, value)
+        if field == "features" and isinstance(value, dict):
+            existing_features = vehicle.features or {}
+            merged_features = {**existing_features, **value}
+            setattr(vehicle, field, merged_features)
+            continue
+        setattr(vehicle, field, value)
     vehicle.updated_at = datetime.now(timezone.utc)
     return vehicle
 
