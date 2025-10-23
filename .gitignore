@@ -11,8 +11,12 @@ __pycache__/
 data/raw/
 data/raw_blobs/
 data/debug/
+data/seeds/
+data/snapshots/
+data/seed_mapping.yaml
 *.xlsx
 *.xls
+*.csv
 
 # Local development
 carlsbad*.html
