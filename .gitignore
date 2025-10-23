@@ -2,5 +2,19 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .env
+.env.local
+.env.*.local
 .python-version
 *.sqlite
+
+# Sensitive data
+data/raw/
+data/raw_blobs/
+data/debug/
+*.xlsx
+*.xls
+
+# Local development
+carlsbad*.html
+dealer_socket_*.json
+scripts/run_golden_scrape.py
